@@ -17,7 +17,7 @@ async def start(client, message):
     if message.chat.type in ['group', 'supergroup']:
         buttons = [
             [
-                InlineKeyboardButton('🤖 Updates', url='https://t.me/TeamEvamaria')
+                InlineKeyboardButton('🔰 Movies Updates 🔰', url='https://t.me/FM_Update')
             ],
             [
                 InlineKeyboardButton('ℹ️ Help', url=f"https://t.me/{temp.U_NAME}?start=help"),
@@ -38,7 +38,10 @@ async def start(client, message):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/EvaMariaUpdates')
+            InlineKeyboardButton('🔰 Our Main Channel 🔰', url='https://t.me/FM_NEW_MOVIES')
+            ],[
+            InlineKeyboardButton('🧔 ᴍᴀꜱᴛᴇʀ 🧔', url='https://t.me/FM_Admin_owner')
+            InlineKeyboardButton('🔰 Our Main Group 🔰', url='https://t.me/FM_FilmMania')
             ],[
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
@@ -60,7 +63,7 @@ async def start(client, message):
         btn = [
             [
                 InlineKeyboardButton(
-                    "🤖 Join Updates Channel", url=invite_link.invite_link
+                    "‼️ Join Updates Channel ‼️", url=invite_link.invite_link
                 )
             ]
         ]
@@ -79,7 +82,7 @@ async def start(client, message):
             InlineKeyboardButton('➕ Add Me To Your Groups ➕', url=f'http://t.me/{temp.U_NAME}?startgroup=true')
             ],[
             InlineKeyboardButton('🔍 Search', switch_inline_query_current_chat=''),
-            InlineKeyboardButton('🤖 Updates', url='https://t.me/EvaMariaUpdates')
+            InlineKeyboardButton('🎬 Updates', url='https://t.me/FM_Update')
             ],[
             InlineKeyboardButton('ℹ️ Help', callback_data='help'),
             InlineKeyboardButton('😊 About', callback_data='about')
@@ -98,7 +101,7 @@ async def start(client, message):
         return await message.reply('No such file exist.')
     files = files_[0]
     title = files.file_name
-    size=get_size(files.file_size)
+    size=get_size(files)
     f_caption=files.caption
     if CUSTOM_FILE_CAPTION:
         try:
@@ -159,7 +162,7 @@ async def delete(bot, message):
     """Delete file from database"""
     reply = message.reply_to_message
     if reply and reply.media:
-        msg = await message.reply("Processing...⏳", quote=True)
+        msg = await message.reply("🕥Processing...🕞", quote=True)
     else:
         await message.reply('Reply to file with /delete which you want to delete', quote=True)
         return
