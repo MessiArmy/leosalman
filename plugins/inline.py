@@ -39,7 +39,6 @@ async def answer(bot, query):
 
     for file in files:
         title=file.file_name
-        size=get_size(file.file_size)
         f_caption=file.caption
         if CUSTOM_FILE_CAPTION:
             try:
@@ -48,13 +47,13 @@ async def answer(bot, query):
                 print(e)
                 f_caption=f_caption
         if f_caption is None:
-            f_caption = f"{file.file_name}"
+            f_caption = f"🍿{file.file_name}"
         results.append(
             InlineQueryResultCachedDocument(
                 title=file.file_name,
                 file_id=file.file_id,
                 caption=f_caption,
-                description=f'Size: {get_size(file.file_size)}\nType: {file.file_type}',
+                description=f'🍿{file.file_type}',
                 reply_markup=reply_markup))
 
     if results:
@@ -91,7 +90,7 @@ async def answer(bot, query):
 def get_reply_markup(query):
     buttons = [
         [
-            InlineKeyboardButton('Search again', switch_inline_query_current_chat=query)
+            InlineKeyboardButton('🕵️Search again', switch_inline_query_current_chat=query)
         ]
         ]
     return InlineKeyboardMarkup(buttons)
